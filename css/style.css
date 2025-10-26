@@ -1,0 +1,121 @@
+/* 1. ESTILOS GERAIS */
+body {
+
+    font-family: 'Verdana', sans-serif;
+    margin: 0;
+    background-color: #091728;
+ }
+.container {
+    max-width: 1200px;
+    margin: 0 auto; /* Centraliza o container na página */
+    padding: 40px 20px; /* Espaçamento interno */
+}
+.gallery-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #ffff;
+    margin-bottom: 40px;
+}
+
+/* 2. A GALERIA - O FOCO DO NOSSO ESTUDO! */
+
+.gallery-grid {
+    /* ----- A MÁGICA DO CSS GRID COMEÇA AQUI ----- */
+    /*
+
+     * Ao declarar "display: grid", este elemento se torna
+
+     * um "Grid Container".
+
+     */
+
+    display: grid;
+    /*
+
+     * Esta é a linha mais importante. Vamos quebrá-la em partes:
+
+     * "grid-template-columns": Define as colunas da nossa grade.
+
+     * "repeat(...)": Diz ao grid para criar um padrão repetido de colunas.
+
+     * "auto-fit": Diz ao grid para encaixar o máximo de colunas que couberem
+
+     * na largura disponível. Se não couberem, ele as joga para a linha de baixo.
+
+     * "minmax(250px, 1fr)": Define o tamanho de cada coluna. "minmax" diz que
+
+     * cada coluna terá NO MÍNIMO 250px e NO MÁXIMO 1fr
+
+     * (uma fração do espaço disponível).
+
+     *
+
+     * O resultado: O navegador cria quantas colunas de 250px couberem. Se sobrar
+
+     * espaço, ele distribui igualmente entre elas. Se a tela encolher e
+
+     * não couberem mais, ele quebra a linha AUTOMATICAMENTE.
+
+     */
+
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /*
+
+     * "gap" funciona tanto no Flexbox quanto no Grid. Ele cria
+
+     * o espaçamento entre as linhas e as colunas da nossa grade.
+
+     */
+
+    gap: 20px;
+
+}
+/* 3. ESTILOS DOS ITENS DA GALERIA */
+
+.gallery-item {
+    border-radius: 8px;
+    overflow: hidden; /* Garante que a imagem respeite os cantos arredondados */
+    box-shadow: 0 15px 10px rgba(176, 241, 37, 0.15);
+}
+.gallery-item img {
+    width: 100%; /* Faz a imagem ocupar 100% da largura do seu container (.gallery-item) */
+    height: 100%; /* Faz a imagem ocupar 100% da altura */
+    object-fit: cover; /* Cobre o espaço sem distorcer, cortando o excesso */
+    display: block; /* Remove espaços extras indesejados */
+    transition: transform 0.4s ease; /* Animação suave para o efeito de zoom */
+}
+
+/* Efeito de zoom sutil ao passar o mouse */
+.gallery-item img:hover {
+    transform: scale(1.05); /* Aumenta a imagem em 5% */
+}
+.form-group {
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group.termos {
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .form-group label {
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+  
+  .form-group.termos label {
+    margin-bottom: 0;
+    margin-left: 8px;
+    font-weight: normal;
+    color: aliceblue;
+  }
+  
+  textarea {
+    resize: vertical;
+    padding: 8px;
+    font-size: 1rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
